@@ -1,0 +1,40 @@
+.entry
+{
+  margin-left: 20px;
+  float: left;
+  width: 240px;
+  text-align: center;
+  p
+  {
+    margin-bottom: 1px;
+    margin-top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 240px;
+    border-radius: 10px;
+    border: 1px solid green
+  }
+  :hover
+  {
+    text-decoration: underline;
+    img
+    {
+      opacity: 0.4;
+    }
+  }
+}
+#group
+{
+  overflow: hidden;
+  margin-top: 10px;
+}
+.group-p
+{
+  border-radius: 10px;
+  text-align: center;
+  background: grey;
+}
+html
+{
+  border-top: 1px solid grey;
+}

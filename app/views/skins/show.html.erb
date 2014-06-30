@@ -1,0 +1,6 @@
+<%@skin.each do |s|%>
+<div class="entry">
+  <%= link_to image_tag(s.photo.url(:thumb)), detail_path(id: s.id, categories_id: s.category_id)%>
+  <p><%= s.name %></p>
+</div>
+<%end%>

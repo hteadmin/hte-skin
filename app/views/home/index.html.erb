@@ -1,0 +1,42 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link href="stylesheets/hover.css" rel="stylesheet" media="all">
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <%=image_tag("01.jpg")%>
+        </div>
+        <div class="item">
+          <%=image_tag("01.jpg")%>          
+        </div>
+        <div class="item">
+          <%=image_tag("01.jpg")%>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+<div>
+  <%@group.each do |g| %>
+    <div id="group">
+      <p class="lead group-p">New <%= g.name %> Skin</p>
+      <%@x=g.name%>
+      <% Skin.joins(:group).where("groups.name like ?",@x).order(created_at: :desc).first(4).each do |y|%>
+        <div class="entry">
+          <%= link_to image_tag(y.photo.url(:thumb)), detail_path(id: y.id, categories_id: y.category_id)%>
+          <p><%= link_to y.name , detail_path(id: y.id, categories_id: y.category_id)%></p>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+</div>
+
